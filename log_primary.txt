@@ -1,26 +1,22 @@
-[ec2-user@ip-10-1-10-141 ~]$ mysql -h uaa-recoverability-lab01-db.cg8cbhghxawn.us-east-1.rds.amazonaws.com -u admin -p
+   ,     #_
+   ~\_  ####_        Amazon Linux 2023
+  ~~  \_#####\
+  ~~     \###|
+  ~~       \#/ ___   https://aws.amazon.com/linux/amazon-linux-2023
+   ~~       V~' '->
+    ~~~         /
+      ~~._.   _/
+         _/ _/
+       _/m/'
+Last login: Wed Jul  5 16:19:59 2023 from 18.206.107.29
+[ec2-user@ip-10-1-10-52 ~]$ mysql -h  uaa-lab01-primary-db.cg8cbhghxawn.us-east-1.rds.amazonaws.com -u admin -p mypassword
+Enter password: 
+ERROR 1049 (42000): Unknown database 'mypassword'
+[ec2-user@ip-10-1-10-52 ~]$ mysql -h  uaa-lab01-primary-db.cg8cbhghxawn.us-east-1.rds.amazonaws.com -u admin -p 
 Enter password: 
 Welcome to the MariaDB monitor.  Commands end with ; or \g.
-Your MySQL connection id is 67
-Server version: 8.0.32 Source distribution
-
-Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
-
-Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
-
-MySQL [(none)]> USE udacity
-Database changed
-MySQL [udacity]> SHOW TABLES;
-Empty set (0.001 sec)
-
-MySQL [udacity]> CREATE TABLE pokemon
-    -> Ctrl-C -- exit!
-Aborted
-[ec2-user@ip-10-1-10-141 ~]$ mysql -h uaa-recoverability-lab01-db.cg8cbhghxawn.us-east-1.rds.amazonaws.com -u admin -p
-Enter password: 
-Welcome to the MariaDB monitor.  Commands end with ; or \g.
-Your MySQL connection id is 68
-Server version: 8.0.32 Source distribution
+Your MySQL connection id is 42
+Server version: 8.0.31 Source distribution
 
 Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
 
@@ -30,14 +26,20 @@ MySQL [(none)]> SHOW TABLES;
 ERROR 1046 (3D000): No database selected
 MySQL [(none)]> USE udacity
 Database changed
-MySQL [udacity]> CREATE TABLE Persons (
+MySQL [udacity]> MySQL [udacity]> CREATE TABLE Persons (
+    ->     ->     PersonID int,
+    ->     ->     LastName varchar(255),
+    ->     ->     FirstName varchar(255),
+    ->     ->     Address varchar(255),
+    ->     ->     City varchar(255)
+    ->     -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'MySQL [udacity]> CREATE TABLE Persons (
     ->     PersonID int,
-    ->     LastName varchar(255),
-    ->     FirstName varchar(255),
-    ->     Address varchar(255),
-    ->     City varchar(255)
-    -> );
-Query OK, 0 rows affected (0.117 sec)
+    ->     Last' at line 1
+MySQL [udacity]> MySQL [udacity]> CREATE TABLE Persons ( PersonID int, LastName varchar(255), FirstName varchar(255),Address varchar(255),  City varchar(255) );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'MySQL [udacity]> CREATE TABLE Persons ( PersonID int, LastName varchar(255), Fir' at line 1
+MySQL [udacity]> CREATE TABLE Persons (PersonID int,LastName varchar(255),FirstName varchar(255),Address varchar(255),City varchar(255));
+Query OK, 0 rows affected (0.064 sec)
 
 MySQL [udacity]> SHOW TABLES;
 +-------------------+
@@ -45,11 +47,10 @@ MySQL [udacity]> SHOW TABLES;
 +-------------------+
 | Persons           |
 +-------------------+
-1 row in set (0.002 sec)
+1 row in set (0.003 sec)
 
-MySQL [udacity]> INSERT INTO Persons VALUES('123232423423','Le', 'Van Thong', '836 DN', 'Danang')
-    -> ;
-Query OK, 1 row affected, 1 warning (0.011 sec)
+MySQL [udacity]> INSERT INTO Persons VALUES('123232423423','Le', 'Van Thong', '836 DN', 'Danang');
+Query OK, 1 row affected, 1 warning (0.010 sec)
 
 MySQL [udacity]> SELECT * FROM PERSONS
     -> ;
@@ -64,3 +65,4 @@ MySQL [udacity]> SELECT * FROM Persons
 1 row in set (0.001 sec)
 
 MySQL [udacity]> 
+

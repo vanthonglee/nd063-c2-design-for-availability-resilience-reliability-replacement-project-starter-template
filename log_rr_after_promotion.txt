@@ -1,8 +1,19 @@
-[ec2-user@ip-10-2-10-70 ~]$ mysql -h uaa-lab01-secondary-db.cgrhjfrvwblk.us-west-1.rds.amazonaws.com -u admin -p
+  ,     #_
+   ~\_  ####_        Amazon Linux 2023
+  ~~  \_#####\
+  ~~     \###|
+  ~~       \#/ ___   https://aws.amazon.com/linux/amazon-linux-2023
+   ~~       V~' '->
+    ~~~         /
+      ~~._.   _/
+         _/ _/
+       _/m/'
+Last login: Wed Jul  5 17:20:06 2023 from 13.52.6.115
+[ec2-user@ip-10-2-10-122 ~]$ mysql -h uaa-lab01-secondary-db.cgrhjfrvwblk.us-west-1.rds.amazonaws.com  -u admin -p
 Enter password: 
 Welcome to the MariaDB monitor.  Commands end with ; or \g.
-Your MySQL connection id is 76
-Server version: 8.0.32 Source distribution
+Your MySQL connection id is 9
+Server version: 8.0.31 Source distribution
 
 Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
 
@@ -23,13 +34,17 @@ MySQL [udacity]> SHOW TABLES;
 
 MySQL [udacity]> INSERT INTO Persons('12321', 'Test', 'test', 'test', 'test');
 ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''12321', 'Test', 'test', 'test', 'test')' at line 1
+MySQL [udacity]> INSERT INTO Persons VALUES('12321', 'Test', 'test', 'test', 'test');
+Query OK, 1 row affected (0.011 sec)
+
 MySQL [udacity]> SELECT * FROM Persons
     -> ;
 +------------+----------+-----------+---------+--------+
 | PersonID   | LastName | FirstName | Address | City   |
 +------------+----------+-----------+---------+--------+
 | 2147483647 | Le       | Van Thong | 836 DN  | Danang |
+|      12321 | Test     | test      | test    | test   |
 +------------+----------+-----------+---------+--------+
-1 row in set (0.001 sec)
+2 rows in set (0.001 sec)
 
 MySQL [udacity]> 
