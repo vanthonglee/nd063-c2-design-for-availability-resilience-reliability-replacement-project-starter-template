@@ -32,8 +32,6 @@ MySQL [udacity]> SHOW TABLES;
 +-------------------+
 1 row in set (0.001 sec)
 
-MySQL [udacity]> INSERT INTO Persons('12321', 'Test', 'test', 'test', 'test');
-ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''12321', 'Test', 'test', 'test', 'test')' at line 1
 MySQL [udacity]> INSERT INTO Persons VALUES('12321', 'Test', 'test', 'test', 'test');
 Query OK, 1 row affected (0.011 sec)
 
